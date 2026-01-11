@@ -3,8 +3,8 @@ import React from 'react'
 
 function Home() {
   return (
-    <div className='flex justify-center'>
-      <Button className=''>hi there</Button>
+    <div className='flex min-h-screen home-wrapper'>
+      home
     </div>
   )
 }
