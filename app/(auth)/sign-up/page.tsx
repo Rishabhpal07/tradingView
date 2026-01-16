@@ -1,19 +1,14 @@
 'use client'
-import CountrySelector from '@/components/forms/check'
 import CountryInput from '@/components/forms/CountryInput'
+import FotterLink from '@/components/forms/FotterLink'
 import InputField from '@/components/forms/inputField'
 import SelectField from '@/components/forms/SelectField'
 import { Button } from '@/components/ui/button'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
-import { useMemo, useState } from 'react'
 import { Form, useForm } from 'react-hook-form'
-import countryList from 'react-select-country-list'
-
 
 function SignUp() {
-  const [value, setValue] = useState('')
-  const CountryOptions = useMemo(() => countryList().getData(), [])
-
+ 
   const {
     register,
     handleSubmit,
@@ -24,7 +19,7 @@ function SignUp() {
       fullName:"",
       email:'',
       password:'',
-      country:'india',
+      country:'us',
       investmentGoals:'Growth',
       riskTolerance:'medium',
       preferredIndustry:'technology' 
@@ -106,6 +101,8 @@ function SignUp() {
       {isSubmitting?'creating account':'start you investment journey'}
     </Button>
    </form>
+
+   <FotterLink text='Already have an account?' linkText='Sign in' href='/sign-in'/>
    </>
   )
 }
