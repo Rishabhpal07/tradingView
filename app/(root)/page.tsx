@@ -1,3 +1,4 @@
+import { connectToDatabase } from '@/components/database/mongoose'
 import TradingViewWidget from '@/components/TradingViewWidget'
 import { Button } from '@/components/ui/button'
 import { HEATMAP_WIDGET_CONFIG, MARKET_DATA_WIDGET_CONFIG, MARKET_OVERVIEW_WIDGET_CONFIG, TOP_STORIES_WIDGET_CONFIG } from '@/lib/constants'
@@ -5,6 +6,8 @@ import React from 'react'
 
 function Home() {
   const ScriptUrl=`https://s3.tradingview.com/external-embedding/embed-widget-`
+  const conn=connectToDatabase()
+  console.log("hi there")
   return (
     <div className='flex min-h-screen home-wrapper'>
       <section className='grid w-full gap-8 home-section'>
