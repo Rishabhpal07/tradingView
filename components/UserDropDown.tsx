@@ -13,14 +13,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut } from "lucide-react"
 import { NAV_ITEMS } from "@/lib/constants"
 import Navbar from "./Navbar"
+import { signOut } from "@/lib/actions/auth-action"
 
-function UserDropDown() {
+function UserDropDown({user}:{user:User}) {
     const router=useRouter()
 
     const handleSignOut=async()=>{
-      router.push('/signin')
+      router.push('/sign-in')
+      await signOut();
     }
-    const user={name:'jhon',email:"contact@email.com"}
   return (
     <div>
       <DropdownMenu>

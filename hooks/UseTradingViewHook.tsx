@@ -1,11 +1,7 @@
 'use client'
 import { useEffect, useRef } from "react"
 
-const useTradingViewHook = (
-  scriptUrl: string,
-  config: Record<string, unknown>,
-  height = 600
-) => {
+const useTradingViewHook = (scriptUrl: string,config: Record<string, unknown>,height = 600) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const configString = JSON.stringify(config)
 

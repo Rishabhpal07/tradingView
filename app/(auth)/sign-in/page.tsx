@@ -2,9 +2,13 @@
 import FotterLink from '@/components/forms/FotterLink'
 import InputField from '@/components/forms/inputField'
 import { Button } from '@/components/ui/button'
+import { signInWithEmail } from '@/lib/actions/auth-action'
+import { useRouter } from 'next/navigation'
+import { Router } from 'next/router'
 import { Form, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 function SignIn() {
-
+  const router=useRouter();
   const {
     register,
     handleSubmit,
@@ -19,9 +23,11 @@ function SignIn() {
   })
   const onSubmit = async (data:SignInFormData) => {
     try {
-      console.log(data)
+        const result=signInWithEmail(data)
+        if((await result).success)router.push('/') 
     } catch (e) {
       console.error(e);
+      toast.error('sign in failed')
     }
     }
   return (

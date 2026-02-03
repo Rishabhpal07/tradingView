@@ -27,5 +27,5 @@ export const connectToDatabase=async()=>{
         cached.promise=null
         throw error;
     }
-    console.log("database connected")
+    return cached.conn;
 }
