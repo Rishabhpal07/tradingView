@@ -4,11 +4,15 @@ import FotterLink from '@/components/forms/FotterLink'
 import InputField from '@/components/forms/inputField'
 import SelectField from '@/components/forms/SelectField'
 import { Button } from '@/components/ui/button'
+import { signUpWithEmail } from '@/lib/actions/auth-action'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
+import { signUpEmail } from 'better-auth/api'
+import { useRouter } from 'next/navigation'
 import { Form, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 function SignUp() {
- 
+  const router=useRouter();
   const {
     register,
     handleSubmit,
@@ -19,7 +23,7 @@ function SignUp() {
       fullName:"",
       email:'',
       password:'',
-      country:'us',
+      country:'ind',
       investmentGoals:'Growth',
       riskTolerance:'medium',
       preferredIndustry:'technology' 
@@ -28,9 +32,12 @@ function SignUp() {
   })
   const onSubmit = async (data:SignUpFormData) => {
   try {
-    console.log(data)
+   const result=await signUpWithEmail(data)
+   if(result.success)router.push('/')
+
   } catch (e) {
     console.error(e);
+    toast.error('sign up failed')
   }
   }
   return (

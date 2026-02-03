@@ -1,5 +1,4 @@
 'use client'
-import React, { memo } from 'react'
 import { cn } from '@/lib/utils'
 import useTradingViewHook from '@/hooks/UseTradingViewHook'
 
@@ -11,13 +10,7 @@ interface TradingViewWidgetProps {
   className?: string
 }
 
-const TradingViewWidget = ({
-  title,
-  scriptUrl,
-  config,
-  height = 600,
-  className
-}: TradingViewWidgetProps) => {
+const TradingViewWidget = ({title,scriptUrl,config,height = 600,className}: TradingViewWidgetProps) => {
   const containerRef = useTradingViewHook(scriptUrl, config, height)
 
   return (
@@ -27,11 +20,9 @@ const TradingViewWidget = ({
           {title}
         </h3>
       )}
-
-      {/* IMPORTANT: React does NOT create widget DOM */}
       <div ref={containerRef} className={cn('w-full', className)} />
     </div>
   )
 }
 
-export default memo(TradingViewWidget)
+export default TradingViewWidget

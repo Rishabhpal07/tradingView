@@ -7,7 +7,6 @@ import React from 'react'
 function Home() {
   const ScriptUrl=`https://s3.tradingview.com/external-embedding/embed-widget-`
   const conn=connectToDatabase()
-  console.log("hi there")
   return (
     <div className='flex min-h-screen home-wrapper'>
       <section className='grid w-full gap-8 home-section'>

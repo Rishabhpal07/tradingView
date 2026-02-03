@@ -4,7 +4,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import UserDropDown from './UserDropDown'
 
-function Header() {
+function Header({user}:{user:User}) {
   return (
     <header className='sticky top-0 header'>
         <div className='container header-wrapper'>
@@ -14,7 +14,7 @@ function Header() {
          <nav className='hidden sm:block'>
            <Navbar/>
          </nav>
-         <UserDropDown/>
+         <UserDropDown user={user}/>
         </div>
     </header>
   )
