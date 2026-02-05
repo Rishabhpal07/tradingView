@@ -1,7 +1,4 @@
 'use server'
-
-import { date, success } from "better-auth"
-import { error } from "console"
 import { auth } from "../better-auth/Auth"
 import { inngest } from "@/components/inngest/client"
 import { headers } from "next/headers"
