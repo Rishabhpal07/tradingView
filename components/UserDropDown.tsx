@@ -11,11 +11,10 @@ import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut } from "lucide-react"
-import { NAV_ITEMS } from "@/lib/constants"
 import Navbar from "./Navbar"
 import { signOut } from "@/lib/actions/auth-action"
 
-function UserDropDown({user}:{user:User}) {
+function UserDropDown({user,initialStocks}:{user:User,initialStocks:StockWithWatchlistStatus[]}) {
     const router=useRouter()
 
     const handleSignOut=async()=>{
@@ -59,7 +58,7 @@ function UserDropDown({user}:{user:User}) {
     </DropdownMenuItem>
     <DropdownMenuSeparator className="bg-gray-600 hidden sm:block"/>
     <nav className="flex flex-row sm:hidden">
-        <Navbar/>
+        <Navbar initialStocks={initialStocks}/>
     </nav>
   </DropdownMenuContent>
 </DropdownMenu>
