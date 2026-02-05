@@ -32,7 +32,7 @@ export const sendNewsSummaryEmail = async (
         from: `"tradingView" <rishahpal21390@gmail.com>`,
         to: email,
         subject: `📈 Market News Summary Today - ${date}`,
-        text: `Today's market news summary from Signalist`,
+        text: `Today's market news summary from trading view`,
         html: htmlTemplate,
     };
 
