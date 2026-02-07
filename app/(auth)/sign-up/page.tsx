@@ -6,7 +6,6 @@ import SelectField from '@/components/forms/SelectField'
 import { Button } from '@/components/ui/button'
 import { signUpWithEmail } from '@/lib/actions/auth-action'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
-import { signUpEmail } from 'better-auth/api'
 import { useRouter } from 'next/navigation'
 import { Form, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -96,7 +95,7 @@ function SignUp() {
       required
      />
      <SelectField
-      name='preferedIndustry'
+      name='preferredIndustry'
       label='Preferend Industry'
       placeholder='select your preffered industry'
       options={PREFERRED_INDUSTRIES}

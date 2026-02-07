@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import { Control, Controller, FieldError } from 'react-hook-form';
+import { Control, Controller, FieldError, FieldValues } from 'react-hook-form';
 import {
     Popover,
     PopoverContent,
@@ -91,7 +91,7 @@ const CountrySelect=({value,onChange}:{value:string;onChange:(value:string)=>voi
 
 }
 
-function CountryInput({name,label,control,error,required}:CountrySelectProps) {
+function CountryInput<T extends FieldValues>({name,label,control,error,required}:CountrySelectProps<T>) {
   return (
     <div className='space-y-2'>
       <Label htmlFor={name} className='form-label'>

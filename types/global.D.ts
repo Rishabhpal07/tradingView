@@ -1,4 +1,4 @@
-import {  Control, FieldError, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { Control, FieldError, FieldValues, Path, RegisterOptions, UseFormRegister } from "react-hook-form";
 
 declare global {
     type SignInFormData = {
@@ -16,40 +16,42 @@ declare global {
         preferredIndustry: string;
     };
 
-    type CountrySelectProps = {
-        name: string;
+    type CountrySelectProps<T extends FieldValues = FieldValues> = {
+        name: Path<T>;
         label: string;
-        control: Control;
+        control: Control<T>;
         error?: FieldError;
         required?: boolean;
-    };
+      };
+    
 
-    type FormInputProps = {
+    type FormInputProps<T extends FieldValues = FieldValues> = {
         name: string;
         label: string;
         placeholder: string;
         type?: string;
-        register: UseFormRegister<any>;
+        register: UseFormRegister<T>;
         error?: FieldError;
-        validation?: RegisterOptions;
+        validation?: RegisterOptions<T,any>;
         disabled?: boolean;
         value?: string;
-    };
+      };
+    
 
     type Option = {
         value: string;
         label: string;
     };
-
-    type SelectFieldProps = {
-        name: string;
+    type SelectFieldProps<T extends FieldValues = FieldValues> = {
+        name: Path<T>;
         label: string;
         placeholder: string;
         options: readonly Option[];
-        control: Control;
+        control: Control<T>;
         error?: FieldError;
         required?: boolean;
-    };
+      };
+    
 
     type FooterLinkProps = {
         text: string;
